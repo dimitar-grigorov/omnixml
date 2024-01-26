@@ -2526,7 +2526,7 @@ begin
   Stream := TMemoryStream.Create;
   try
     US := TXMLTextStream.Create(Stream, smWrite, TEncoding.OWideStringEncoding, False);
-
+    US.OutputFormat := ofIndent; //Added by Dimitar Grigorov
     InternalWriteToStream(US);
     US := nil;//(op) MUST BE HERE -> FLUSH BUFFER
     SetLength(Result, Stream.Size div SizeOf(XmlChar));
